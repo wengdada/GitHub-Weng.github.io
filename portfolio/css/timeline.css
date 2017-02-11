@@ -8,6 +8,7 @@ body, html {
 	font-size: 100%;
 	padding: 0;
 	margin: 0;
+    
 }
 
 .main a{
@@ -23,6 +24,7 @@ body, html {
 	max-width: 69em;
 	margin: 0 auto;
 	padding: 0 1.375em;
+     
 }
 
 @font-face {
@@ -43,6 +45,7 @@ body, html {
 	max-width: 600px;
 	margin: 0 auto;
 	margin-top: -120px;
+    
 }
 
 .cbp_tmtimeline > li {
@@ -188,11 +191,13 @@ html{
 }
 body{
 	background: #fafafa;
+    
 }
 header{
-	background: #6ca8fb;
+	/*background: #6ca8fb;
 	background: -webkit-linear-gradient(to left, #00d2ff , #6ca8fb);
-	background: linear-gradient(to left, #00d2ff , #6ca8fb);
+	background: linear-gradient(to left, #00d2ff , #6ca8fb);*/
+    background: url("../images/header_background.jpg")  no-repeat;
 	text-align: center;
 	height: 620px;
 	min-width: 100%;
