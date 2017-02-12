@@ -16,6 +16,8 @@ tags:
 ##1. Sublime3
 [如何优雅地使用Sublime Text3](http://www.jianshu.com/p/3cb5c6f2421c/)
 
+[Sublime Text3使用总结](http://www.jianshu.com/p/5a38a635d255)
+
 
 
 ##2. Markdown
