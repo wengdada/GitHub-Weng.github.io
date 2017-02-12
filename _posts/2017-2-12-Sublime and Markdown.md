@@ -13,14 +13,16 @@ tags:
 
 
 
-##1. Sublime3
+## 1. Sublime3
+
 [如何优雅地使用Sublime Text3](http://www.jianshu.com/p/3cb5c6f2421c/)
 
 [Sublime Text3使用总结](http://www.jianshu.com/p/5a38a635d255)
 
 
 
-##2. Markdown
+## 2. Markdown
+
 [Markdown入门](http://sspai.com/25137)
 
 [Markdown语法说明英文版](http://daringfireball.net/projects/markdown/syntax)
