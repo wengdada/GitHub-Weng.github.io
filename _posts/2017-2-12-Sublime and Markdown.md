@@ -38,4 +38,3 @@ tags:
 当然你也可以选择安装MarkdownLivePreview，直接可以在Sublime中实现实时预览功能，'alt+m'即可实现。
 
 
-<meta http-equiv="refresh" content="1">
