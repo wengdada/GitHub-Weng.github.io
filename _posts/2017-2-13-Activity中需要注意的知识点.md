@@ -38,4 +38,3 @@ tags:
 11. singleTask：栈内复用模式。只要Activity中一个栈中存在，多次启动Activity都不会重新创建实例，和singleTop一样也会回调onNewInent。具体一点，当一个具有singleTask模式的Activity A请求启动后，系统先会寻找是否存在A想要的任务栈。如果不存在对应任务栈，就重新创建一个任务栈，然后创建A的实例后，把A放到任务栈中。如果存在A所需的任务栈，那么系统将判断该任务栈中是否有实例A。如果有实例A，那么系统就将A调到栈顶并调用其onNewIntent方法（会清空A之上的Activity）。如果没有实例A，那么系统就创建实例A并压入栈中。
 
 
-<meta http-equiv="refresh" content="10">
