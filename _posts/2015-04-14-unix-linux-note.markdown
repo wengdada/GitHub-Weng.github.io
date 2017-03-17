@@ -16,7 +16,7 @@ tags:
 > 
 
 
-[text](file/Experiment1_Advanced_Language_and_Grammar.pdf)
+[text](https://github.com/GitHub-Weng/GitHub-Weng.github.io/blob/master/file/Experiment1_Advanced_Language_and_Grammar.pdf)
 
 ## Unix 
 
