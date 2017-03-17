@@ -323,3 +323,6 @@ public class add {
 
 
 ```
+
+下面的是正则表达式的入门，可以了解下：
+[正则表达式30分钟入门教程](http://deerchao.net/tutorials/regex/regex.htm)
