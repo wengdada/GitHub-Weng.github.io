@@ -25,11 +25,10 @@ tags:
 package main;
 import java.io.IOException;
 import java.util.Scanner;
-// 总体思想：
+
+//总体思想：
 //先用正则表达式判断输入的格式是否正确
-
 //若同号，去符号位后进行长度对齐再进行加法，注意同号中的-0，-0结果不需要显示负号
-
 //若异号，去符号位后进行长度对齐再进行减法，注意判断去符号后的两个数是否相同，相同结果为0
 
 public class add {
@@ -53,23 +52,22 @@ public class add {
         
         if(num1.matches(regex)&&num2.matches(regex)){
             if(Array1[0]=='-'){
-                flagNegOrPos_num1 = false;
+                flagNegOrPos_num1 = Negative;
             }
             if(Array2[0]=='-'){
-                flagNegOrPos_num2 = false;
+                flagNegOrPos_num2 = Negative;
             }
             //若同号，做加法，最后算符号
             if((flagNegOrPos_num1&&flagNegOrPos_num2)||(!flagNegOrPos_num1&&!flagNegOrPos_num2)){
-                //均为负数
-                if(!flagNegOrPos_num1){
-                    //去掉负号
-                    num1=num1.substring(1);
-                    num2=num2.substring(1);
+                
+                if(flagNegOrPos_num1==Negative){//均为负数
+                    
+                    num1=num1.substring(1);//去掉负号
+                    num2=num2.substring(1);//去掉负号
                     Array1=num1.toCharArray();
                     Array2=num2.toCharArray();
-                    
                 }
-                else{//均为正数
+                else{//均为正数,若存在正号，去掉
                     if(Array1[0]=='+'){
                         num1=num1.substring(1);
                         Array1=num1.toCharArray();
@@ -81,14 +79,16 @@ public class add {
                         
                 }
 
-                //开始做加法，首先同一规格,将短的变长
+                //开始做加法，首先同一规格,让短的数组和长的数组有相同的位数
                 char num_expand[];//存储扩展后的数组
                 char num_copy[];//存储不需要扩展的数组
                 
                 int size=0;
                 int i,j=0;
-                //第一个数字比较长
+                
+                //第一个数组比较长，num_copy为第一个数组，num_expand为第二个数组
                 if(Array1.length>Array2.length){
+                    
                     num_copy=Array1;
                     size=Array1.length;
                     num_expand=new char[size];
@@ -100,9 +100,7 @@ public class add {
                         num_expand[i++]=Array2[j++];
                     }
                     
- 
-                //第二个数字比较长
-                }else{
+                }else{//第二个数组比较长，num_copy为第二个数组，num_expand为第一个数组
                     num_copy=Array2;
                     size=Array2.length;
                     num_expand=new char[size];
@@ -118,20 +116,20 @@ public class add {
   
                boolean carry=false;//进位标志符
                
-               char result[]=new char[size+1];
+               char result[]=new char[size+1];//可能最后结果需要进位，所以多一位
                for(i=size-1;i>=0;i--){
-                   int bitadd=0;
+                   int temp=0;
                    if(carry){
-                       bitadd++;
+                       temp++;
                        carry=false;
                    }
-                   bitadd+=num_copy[i]+num_expand[i]-'0'-'0';
-                   if(bitadd>=10){
+                   temp+=num_copy[i]+num_expand[i]-'0'-'0';
+                   if(temp>=10){
                        carry=true;
-                       bitadd=bitadd-10;
+                       temp=temp-10;
                    }
                    
-                   result[i+1]=(char)((char)bitadd+'0');
+                   result[i+1]=(char)((char)temp+'0');
                }
 
                int StartPrintBit=1;//是否打印结果数组的首位,即判断结果是否有进位
@@ -162,7 +160,7 @@ public class add {
                 int i,j;
                 
                 //num1为负数，num2为正数
-                if(!flagNegOrPos_num1){
+                if(flagNegOrPos_num1==Negative){
                     
                     //num1去掉负号,去掉num2'+'号若存在
                     num1=num1.substring(1);
@@ -176,7 +174,7 @@ public class add {
                 }
                 
                 //num2为负数，num1为正数
-                if(!flagNegOrPos_num2){
+                if(flagNegOrPos_num2==Negative){
                     ////num2去掉负号,去掉num1'+'号若存在
                     num2=num2.substring(1);
                     Array2=num2.toCharArray();
@@ -211,7 +209,7 @@ public class add {
                     }       
                 }
 
-                //结果为正数,先把减数与被减数进行对齐
+                //结果为正数
                 if(result_positive){
                     
                     char []positive_result=new char[sub1_size];
@@ -295,17 +293,14 @@ public class add {
                 
             }
 
-        }else
-            System.out.println("wrong");    
-    }
-    
-    //打印 char []的函数
-/*  public static void printchar(char []a){
-        for (char c : a) {
-            System.out.print(c);
         }
-        System.out.println();
-    }*/
+        
+        
+    else{
+        System.out.println("wrong");
+    }
+ }
+    
     
     public static void main(String[] args) throws IOException {
         
