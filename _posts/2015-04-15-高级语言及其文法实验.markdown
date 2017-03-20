@@ -8,7 +8,7 @@ header-img:
 catalog: true
 tags:
     - 编译原理
-    - 实验
+    - 大学实验
 ---
 
 
@@ -51,5 +51,5 @@ tags:
 
 ![](http://wengdada.tech/img/compiler_principles_and_techniques_homework1_2.png)
 
-[实验文件及代码](https://github.com/GitHub-Weng/GitHub-Weng.github.io/blob/master/file/Experiment1_Advanced_Language_and_Grammar.pdf)
+[实验文件及代码](https://github.com/GitHub-Weng/GitHub-Weng.github.io/tree/master/file/%E5%AE%9E%E9%AA%8C%E4%B8%80%20%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E5%8F%8A%E5%85%B6%E6%96%87%E6%B3%95)
 
