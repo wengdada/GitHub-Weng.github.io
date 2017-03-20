@@ -1,0 +1,323 @@
+---
+layout:     post
+title:      "高级语言及其文法实验2"
+subtitle:   "大数相加的实现"
+date:       2017-3-17 
+author:     "Wengdada"
+header-img: 
+catalog: true
+tags:
+    - 面试题
+---
+
+
+> 这是一道面试题目，要求实现大数相加，具体要求如下：请编写一个函数实现两个数字字符串进行十进制加法操作，如果出错返回error。
+> 格式如下：
+> add("9","1"),输出结果为10
+> add("-10","11"),输出结果为1
+> add("-0","+0"),输出结果为0
+> add("-0","-0"),输出结果为0
+> add("000","1"),输出结果为error,如果为0只能输入0，+0，-0
+> add("a","1"),输出结果为error
+
+## 代码如下：
+``` java
+package main;
+import java.io.IOException;
+import java.util.Scanner;
+
+//总体思想：
+//先用正则表达式判断输入的格式是否正确
+//若同号，去符号位后进行长度对齐再进行加法，注意同号中的-0，-0结果不需要显示负号
+//若异号，去符号位后进行长度对齐再进行减法，注意判断去符号后的两个数是否相同，相同结果为0
+
+public class add {
+    //正则表达式检查输入的格式
+    //若以（正负号可有可无）1-9开头的长度不限的字符串
+    //或者以（正负号可有可无）1个0的字符串都符合要求.
+    public static String regex="^[+-]?[1-9][0-9]*$|^[+-]?0$";
+    public static boolean Negative = false;
+    public static boolean Positive = true;
+    public add() {}
+    
+    public static void add(String num1,String num2){
+        
+        char Array1[]=num1.toCharArray();
+        char Array2[]=num2.toCharArray();
+        
+        //假设两个数字都为正数
+        boolean flagNegOrPos_num1=Positive;
+        boolean flagNegOrPos_num2=Positive;
+        boolean flag_result_zero=false;
+        
+        if(num1.matches(regex)&&num2.matches(regex)){
+            if(Array1[0]=='-'){
+                flagNegOrPos_num1 = Negative;
+            }
+            if(Array2[0]=='-'){
+                flagNegOrPos_num2 = Negative;
+            }
+            //若同号，做加法，最后算符号
+            if((flagNegOrPos_num1&&flagNegOrPos_num2)||(!flagNegOrPos_num1&&!flagNegOrPos_num2)){
+                
+                if(flagNegOrPos_num1==Negative){//均为负数
+                    
+                    num1=num1.substring(1);//去掉负号
+                    num2=num2.substring(1);//去掉负号
+                    Array1=num1.toCharArray();
+                    Array2=num2.toCharArray();
+                }
+                else{//均为正数,若存在正号，去掉
+                    if(Array1[0]=='+'){
+                        num1=num1.substring(1);
+                        Array1=num1.toCharArray();
+                    }
+                    if(Array2[0]=='+'){
+                        num2=num2.substring(1);
+                        Array2=num2.toCharArray();
+                    }
+                        
+                }
+
+                //开始做加法，首先同一规格,让短的数组和长的数组有相同的位数
+                char num_expand[];//存储扩展后的数组
+                char num_copy[];//存储不需要扩展的数组
+                
+                int size=0;
+                int i,j=0;
+                
+                //第一个数组比较长，num_copy为第一个数组，num_expand为第二个数组
+                if(Array1.length>Array2.length){
+                    
+                    num_copy=Array1;
+                    size=Array1.length;
+                    num_expand=new char[size];
+                    
+                    for(i=0;i<size;i++){
+                        num_expand[i]='0';
+                    }
+                    for(i=size-Array2.length,j=0;i<size;){
+                        num_expand[i++]=Array2[j++];
+                    }
+                    
+                }else{//第二个数组比较长，num_copy为第二个数组，num_expand为第一个数组
+                    num_copy=Array2;
+                    size=Array2.length;
+                    num_expand=new char[size];
+                    
+                    for(i=0;i<size;i++){
+                        num_expand[i]='0';
+                    }
+                    for(i=size-Array1.length,j=0;i<size;){
+                        num_expand[i++]=Array1[j++];
+                    }
+                   
+                }
+  
+               boolean carry=false;//进位标志符
+               
+               char result[]=new char[size+1];//可能最后结果需要进位，所以多一位
+               for(i=size-1;i>=0;i--){
+                   int temp=0;
+                   if(carry){
+                       temp++;
+                       carry=false;
+                   }
+                   temp+=num_copy[i]+num_expand[i]-'0'-'0';
+                   if(temp>=10){
+                       carry=true;
+                       temp=temp-10;
+                   }
+                   
+                   result[i+1]=(char)((char)temp+'0');
+               }
+
+               int StartPrintBit=1;//是否打印结果数组的首位,即判断结果是否有进位
+               if(carry){
+                   result[i+1]='1';
+                   StartPrintBit=0;
+               }
+               
+               
+               if(StartPrintBit==1&&result[1]=='0'){
+                   flag_result_zero=true;
+               }
+               if(!flagNegOrPos_num1&&!flag_result_zero)
+                   System.out.print("-");
+               for( i=StartPrintBit;i<size+1;i++){
+                   System.out.print(result[i]); 
+               }
+    
+            }
+    
+        else{//若异号,做减法
+    
+                //确定减数以及被减数
+                char []sub1=null;//被减数
+                char []sub2=null;//减数
+                boolean result_positive=false;
+                boolean result_negative=false;
+                int i,j;
+                
+                //num1为负数，num2为正数
+                if(flagNegOrPos_num1==Negative){
+                    
+                    //num1去掉负号,去掉num2'+'号若存在
+                    num1=num1.substring(1);
+                    Array1=num1.toCharArray();
+                    if(Array2[0]=='+'){
+                        num2=num2.substring(1);
+                        Array2=num2.toCharArray();
+                    }
+                    sub1=Array2;
+                    sub2=Array1;    
+                }
+                
+                //num2为负数，num1为正数
+                if(flagNegOrPos_num2==Negative){
+                    ////num2去掉负号,去掉num1'+'号若存在
+                    num2=num2.substring(1);
+                    Array2=num2.toCharArray();
+                    if(Array1[0]=='+'){
+                        num1=num1.substring(1);
+                        Array1=num1.toCharArray();
+                    }
+                    sub1=Array1;
+                    sub2=Array2;
+                    
+                }
+                
+                int sub1_size=sub1.length;
+                int sub2_size=sub2.length;
+                
+                //结果判断是否为负数
+                if(sub1_size<sub2_size)
+                    result_negative=true;
+                else if(sub1_size>sub2_size)
+                    result_positive=true;
+                else {
+                    for(i=0;i<sub1_size;i++){
+                        int temp=sub1[i]-sub2[i];
+                        if(temp>0){
+                            result_positive=true;
+                            break;
+                        }
+                        if(temp<0){
+                            result_negative=true;
+                            break;
+                        }
+                    }       
+                }
+
+                //结果为正数
+                if(result_positive){
+                    
+                    char []positive_result=new char[sub1_size];
+                    char []sub2_extend= new char[sub1_size];
+                    for(i=0;i<sub1_size;i++){
+                        sub2_extend[i]='0';
+                    }
+                    
+                    for(i=sub1_size-sub2_size,j=0;i<sub1_size;i++,j++){
+                        sub2_extend[i]=sub2[j];
+                    }
+                    boolean flag=false;//是否需要借位
+                    
+                    for(i=sub1_size-1;i>=0;i--){
+                        int temp=0;
+                        if(flag){
+                            temp--;
+                            flag=false;
+                        }
+                        temp+=sub1[i]-sub2_extend[i];
+                        if(temp<0){
+                            flag=true;
+                            temp+=10;
+                        }
+                        positive_result[i]=(char)(temp+'0');
+                    }
+
+                    for(i=0;i<sub1_size;i++){
+                        if(positive_result[i]>'0')
+                            break;
+                    }
+                    for(;i<sub1_size;i++){
+                        System.out.print(positive_result[i]);
+                    }       
+                }
+
+                //结果为负数
+                if(result_negative){
+                    char []negative_result=new char[sub2_size];
+                    char []sub1_extend= new char[sub2_size];
+                    for(i=0;i<sub2_size;i++){
+                        sub1_extend[i]='0';
+                    }
+                    
+                    for(i=sub2_size-sub1_size,j=0;i<sub2_size;i++,j++){
+                        sub1_extend[i]=sub1[j];
+                    }
+                    
+                    boolean flag=false;//是否需要借位
+                    
+                    for(i=sub2_size-1;i>=0;i--){
+                        int temp=0;
+                        if(flag){
+                            temp--;
+                            flag=false;
+                        }
+                        temp+=sub2[i]-sub1_extend[i];
+                        
+                        if(temp<0){
+                            flag=true;
+                            temp+=10;
+                        }
+                        negative_result[i]=(char)(temp+'0');
+                    }
+                    
+                    System.out.print("-");
+                    
+                    for(i=0;i<sub2_size;i++){
+                        if(negative_result[i]>'0')
+                            break;
+                    }
+                    for(;i<sub2_size;i++){
+                        System.out.print(negative_result[i]);
+                    }
+                }
+                
+                //结果非正非负，为0
+                if(!result_negative&&!result_positive){
+                    System.out.println("0");
+                }
+                
+            }
+
+        }
+        
+        
+    else{
+        System.out.println("wrong");
+    }
+ }
+    
+    
+    public static void main(String[] args) throws IOException {
+        
+        
+        // TODO Auto-generated method stub
+        while(true){
+        Scanner reader = new Scanner(System.in);
+        String num1=reader.next();
+        String num2=reader.next();
+        add(num1,num2);
+        }
+    }
+        
+}
+
+
+```
+
+下面的是正则表达式的入门，可以了解下：
+[正则表达式30分钟入门教程](http://deerchao.net/tutorials/regex/regex.htm)
