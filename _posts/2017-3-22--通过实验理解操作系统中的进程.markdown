@@ -13,12 +13,12 @@ tags:
 
 ## 主要内容
 
-通过这次实验，你能过巩固一下知识点：
+通过这次实验，你能过巩固以下知识点：
 - top、ps、pstree、kill等命令的使用
 - 进程的创建，运行，撤销，对fork()的进一步理解，
 - 理解孤儿进程，僵尸进程
 - 对虚拟地址空间mm_struct，虚拟区vm_area_struct有初步的理解
 
 
-[实验文件及代码](https://github.com/GitHub-Weng/GitHub-Weng.github.io/tree/master/file/%E5%AE%9E%E9%AA%8C%E4%B8%80%20%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E5%8F%8A%E5%85%B6%E6%96%87%E6%B3%95)
+[实验文件及代码](https://github.com/GitHub-Weng/GitHub-Weng.github.io/blob/master/file/%E8%BF%9B%E7%A8%8B%E5%AE%9E%E9%AA%8C.doc)
 
