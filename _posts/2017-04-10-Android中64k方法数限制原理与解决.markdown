@@ -1,13 +1,12 @@
 ---
 layout:     post
 title:      "Android中64k方法数限制原理与解决"
-subtitle:   "大数相加的实现"
-date:       2017-3-17 
+date:       2017-4-10 
 author:     "Wengdada"
 header-img: 
 catalog: true
 tags:
-    - 面试题
+    - Android
 ---
 
 
