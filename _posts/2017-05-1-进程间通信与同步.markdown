@@ -1,12 +1,12 @@
 ---
 layout:     post
-title:      "Tencent213面"
-date:       2017-4-10 
+title:      "进程间通信与同步"
+date:       2017-5-1 
 author:     "Wengdada"
 header-img: 
 catalog: true
 tags:
-    - Android
+    - OS
 ---
 
 
