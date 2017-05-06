@@ -294,6 +294,13 @@ int main ( int argc, char *argv[] )
 
 代码 4-5 shmatt-read-demo.c 代码
 ```c
+#include <sys/types.h> 
+#include <sys/ipc.h> 
+#include <sys/shm.h> 
+#include <stdlib.h> 
+#include <stdio.h>
+#include <string.h>
+
  int main ( int argc, char *argv[] ){
  int shm_id ; 
  char * shm_buf;
@@ -468,9 +475,9 @@ int sem_init(sem_t *sem, int pshared, unsigned int value);
 互斥量是信号量的一个退化版本，仅用于并发任务间的互斥访问。下面先用一个代码来展 示多线程并发且没有用互斥量保护共享变量的情形，如代码 4-10 所示，此时结果可能会出现 错误。该程序对一个缓冲区（缓冲区内是数值为 3、4、3、4......交织的整数）内的每个整数进 行检查，并对数值为 3 的整数进行计数统计，统计工作由 16 个线程并发完成（每个线程负责 缓冲区的 1/16 的数据）。
 
 ```c
-#include <pthread.h> 
-#include <unistd.h> 
-#include <stdio.h> 
+#include <pthread.h>
+#include <unistd.h>
+#include <stdio.h>
 #include <malloc.h>
 
 #define thread_num 16
@@ -478,7 +485,7 @@ int sem_init(sem_t *sem, int pshared, unsigned int value);
 int *array;
 int length; //array length
 int count;
-int t; //number of thread 
+int t; //number of thread
 void *count3s_thread(void* id);
 
 int main()
@@ -488,14 +495,14 @@ int main()
     pthread_t threads[thread_num];
     length = 64 * MB;
     array = malloc(length*4); //256MB
-    for (i = 0; i < length; i++) //initial array 
+    for (i = 0; i < length; i++) //initial array
     array[i] = i % 2 ? 4 : 3; //偶数 i 对应数值 3
 
     //循环创建 16 个线程
     for (t = 0; t < thread_num; t++) {
         count = 0;
         tid[t]=t;
-        int err = pthread_create(&(threads[t]), NULL, count3s_thread,&(tid[t]) ); 
+        int err = pthread_create(&(threads[t]), NULL, count3s_thread,&(tid[t]) );
         if (err){
             printf("create thread error!\n");
             return 0;
@@ -504,10 +511,10 @@ int main()
 
     for (t = 1; t < thread_num; t++) {
         //等待前面创建的计数线程结束
-        pthread_join(threads[t], NULL); 
+        pthread_join(threads[t], NULL);
     }
 
-    printf("Total count= %d \n",count); 
+    printf("Total count= %d \n",count);
     return 0;
 }
 
@@ -515,21 +522,22 @@ int main()
 void *count3s_thread(void* id) {
  /*compute portion of the array that this thread should work on*/
 
-    //length of every thread 
-    int length_per_thread = length / thread_num; 
+    //length of every thread
+    int length_per_thread = length / thread_num;
 
-    //every thread start position 
-    int start = *(int *)id * length_per_thread; 
+    //every thread start position
+    int start = *(int *)id * length_per_thread;
     int i;
 
     for (i = start; i < start + length_per_thread; i++){
         if (array[i] == 3){
-            //计数，为加入互斥保护 
-            count++; 
+            //计数，为加入互斥保护
+            count++;
         }
     }
+
 }
-}
+
 ```
 
 编译后运行 no-mutex-demo（注意编译时要有-lpthread 参数指出所需的线程库），每次运行结果并不唯一（共享变量未能得到互斥访问）。如果对 count++这个临界区加以保护，就能避免出现这个错误。
@@ -549,7 +557,7 @@ int count;
 int t; //number of thread 
 void *count3s_thread(void* id);
 
-mutex m; //增加一个互斥量
+pthread_mutex_t m; //增加一个互斥量
 
 int main()
 {
