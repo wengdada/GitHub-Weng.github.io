@@ -1,4 +1,4 @@
-﻿---
+---
 layout:     post
 title:      "每日一更"
 date:       2017-5-7 
@@ -6,11 +6,11 @@ author:     "Wengdada"
 header-img: 
 catalog: true
 tags:
-    - Android 
-    - Java 
-    - C 
-    - Network 
-    - DataStructure 
+    - Android
+    - Java
+    - C
+    - Network
+    - DataStructure
     - Algorithm
 ---
 
@@ -38,7 +38,7 @@ tags:
 
 <span id="c_reference"></span>
 ## C相关
-####　strlen()的实现
+#### strlen()的实现
 
 strlen所作的仅仅是一个计数器的工作，它从内存的某个位置（可以是字符串开头，中间某个位置，甚至是某个不确定的内存区域）开始扫描，直到碰到第一个字符串结束符'\0'为止，然后返回计数器值(长度不包含“\0”)。
 
@@ -67,7 +67,7 @@ int main()
 
 <span id="networks_reference"></span>
 ## Networks相关
-####[五大方案实现IPv6与IPv4共存互通][1]
+#### [五大方案实现IPv6与IPv4共存互通][1]
  - 2011年2月3日，全球互联网数字分配机构(IANA)正式宣布已无新的IPv4地址分配。
  - 从技术本质上讲，解决IPv4地址短缺，可以采用两种不同的技术路线，一种是多级NAT(如NAT444)技术，另一种是IPv6技术，这两种技术是完全对立的。从长远来看，NAT技术并不能从根本上解决地址短缺的问题，而且会增加网络结构的复杂性。目前，业界已达成共识：IPv6技术是当前可行的解决IP地址短缺唯一根本的解决方案。但是由于IPv6与IPv4技术不兼容，而且现网中有大量的IPv4设备和用户存在，需要在网络演进过程中解决异构网络的共存与互通问题。
  - 热点过渡技术方案
@@ -119,6 +119,7 @@ ListNode* Merge(ListNode* head1,ListNode* head2){
 蛮力法
 栈 
 不需要栈，长的先走
+
 
 #### 最大公约数的几种求法
 - 蛮力法
