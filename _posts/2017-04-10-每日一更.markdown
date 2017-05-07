@@ -6,11 +6,46 @@ author:     "Wengdada"
 header-img: 
 catalog: true
 tags:
-    - Android
+    - Android C Java Networks
 ---
 
 
->面试的内容问的都是很基础，但是很容易忽视的问题
+>坚持每天都打卡，把生活中遇到的问题都记录下来
+
+
+* [Android相关](#android_reference)
+* [Java相关](#java_reference)
+* [C相关](#c_reference)
+* [Networks相关](#networks_reference)
+ 
+
+<span id="android_reference"></span>
+###### Android相关
+- Java编程思想  --Bruce Eckel
+- Java核心技术 卷1 卷2 
+- Effective Java中文版 --Joshua Bloch
+- 深入理解java虚拟机 --周志明
+
+
+<span id="java_reference"></span>
+###### Java相关
+- 第一行代码 Android 第2版 --郭霖
+- Android权威编程指南 --Bill Phillips  Brian Hardy
+- Android群英传 --徐宜生
+- Android群英传 神兵利器 --徐宜生
+- Android高级进阶 --顾浩鑫
+- Android开发艺术探索 --任玉刚
+- Android源码设计模式 解析与实战 --何红辉 关爱民
+
+<span id="c_reference"></span>
+###### C相关
+- 剑指Offer 名企面试官精讲典型编程题  --何海涛
+- 程序员代码面试指南 --左程云
+
+<span id="networks_reference"></span>
+###### Networks相关
+- 剑指Offer 名企面试官精讲典型编程题  --何海涛
+- 程序员代码面试指南 --左程云
 
 
 2017年4月25日00:26:46

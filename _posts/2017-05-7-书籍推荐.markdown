@@ -22,12 +22,15 @@ tags:
 - Java编程思想  --Bruce Eckel
 - Java核心技术 卷1 卷2 
 - Effective Java中文版 --Joshua Bloch
+- Java求职宝典  --李伟 白伟明
+- Java多线程编程核心技术 --高洪岩
+- Java高并发程序设计  --葛一鸣 郭超
 - 深入理解java虚拟机 --周志明
 
 
 <span id="android_book"></span>
 ###### Android书籍推荐
-- 第一行代码 Android 第2版 --郭霖<div align="center"><div>
+- 第一行代码 Android 第2版 --郭霖
 - Android权威编程指南 --Bill Phillips  Brian Hardy
 - Android群英传 --徐宜生
 - Android群英传 神兵利器 --徐宜生
