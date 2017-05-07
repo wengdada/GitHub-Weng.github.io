@@ -1,0 +1,41 @@
+---
+layout:     post
+title:      "书籍推荐"
+date:       2017-5-7 
+author:     "Wengdada"
+header-img: 
+catalog: true
+tags:
+    - Recommend
+---
+
+
+>一些个人觉得比较好的书，希望对各位有用
+
+* [android书籍推荐](#android_book)
+* [java书籍推荐](#java_book)
+* [面试书籍推荐](#interview_book)
+ 
+
+<span id="java_book"></span>
+###### Java书籍推荐
+- Java编程思想  --Bruce Eckel
+- Java核心技术 卷1 卷2 
+- Effective Java中文版 --Joshua Bloch
+- 深入理解java虚拟机 --周志明
+
+
+<span id="android_book"></span>
+###### Android书籍推荐
+- 第一行代码 Android 第2版 --郭霖<div align="center"><div>
+- Android权威编程指南 --Bill Phillips  Brian Hardy
+- Android群英传 --徐宜生
+- Android群英传 神兵利器 --徐宜生
+- Android高级进阶 --顾浩鑫
+- Android开发艺术探索 --任玉刚
+- Android源码设计模式 解析与实战 --何红辉 关爱民
+
+<span id="interview_book"></span>
+###### 面试书籍推荐
+- 剑指Offer 名企面试官精讲典型编程题  --何海涛
+- 程序员代码面试指南 --左程云
