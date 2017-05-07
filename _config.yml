@@ -49,6 +49,7 @@ kramdown:
 
 # Disqus settings
 disqus_username: wengdada
+disqus_share: true
 
 
 # Duoshuo settings
