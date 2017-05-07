@@ -1,0 +1,169 @@
+---
+layout:     post
+title:      "每日一更"
+date:       2017-5-7 
+author:     "Wengdada"
+header-img: 
+catalog: true
+tags:
+    - Android
+    - Java
+    - C
+    - Network
+    - DataStructure
+    - Algorithm
+---
+
+
+>每天都打卡，把生活中遇到的问题都记录下来
+
+* [Android相关](#android_reference)
+* [Java相关](#java_reference)
+* [C相关](#c_reference)
+* [Networks相关](#networks_reference)
+* [数据结构与算法相关](#data_struct_algorithm_reference)
+ 
+
+<span id="android_reference"></span>
+## Android相关
+
+
+
+<span id="java_reference"></span>
+## Java相关
+
+
+
+
+
+<span id="c_reference"></span>
+## C相关
+####　strlen()的实现
+
+strlen所作的仅仅是一个计数器的工作，它从内存的某个位置（可以是字符串开头，中间某个位置，甚至是某个不确定的内存区域）开始扫描，直到碰到第一个字符串结束符'\0'为止，然后返回计数器值(长度不包含“\0”)。
+
+```ｃ
+#include <stdio.h>
+#define N 100
+int strlen( char string[])
+//注意，数组作为函数的参数进行传递时，数组就自动退化为同类型的指针
+{
+    int i=0;
+    while(string[i]!='\0') i++;//直到碰到第一个字符串结束符'\0'
+    return i;
+}
+int main()
+{
+    char string[N];
+    scanf("%s",string);
+    int r=strlen(string);
+    printf("%d\n",r);
+    return 0;
+}
+```
+
+
+
+
+<span id="networks_reference"></span>
+## Networks相关
+####[五大方案实现IPv6与IPv4共存互通][1]
+ - 2011年2月3日，全球互联网数字分配机构(IANA)正式宣布已无新的IPv4地址分配。
+ - 从技术本质上讲，解决IPv4地址短缺，可以采用两种不同的技术路线，一种是多级NAT(如NAT444)技术，另一种是IPv6技术，这两种技术是完全对立的。从长远来看，NAT技术并不能从根本上解决地址短缺的问题，而且会增加网络结构的复杂性。目前，业界已达成共识：IPv6技术是当前可行的解决IP地址短缺唯一根本的解决方案。但是由于IPv6与IPv4技术不兼容，而且现网中有大量的IPv4设备和用户存在，需要在网络演进过程中解决异构网络的共存与互通问题。
+ - 热点过渡技术方案
+目前，IETF已开发出三种机制，即双栈、隧道和翻译，其中双栈和隧道机制仅在网络层面解决IPv4网络与IPv6网络的共存问题，翻译机制在业务层面解决异构网络业务之间的互通问题。自IPv6标准发布以来，IETF已开发出多种不同的IPv4和IPv6共存/过渡技术，但每一种技术只是适用于某个特定的应用场景，在实际部署时，需要根据具体的网络拓扑和业务发展需要，将多种技术结合起来使用。
+
+
+<span id="data_struct_algorithm_reference"></span>
+## 数据结构与算法相关
+
+
+
+
+
+
+
+
+
+
+
+
+2017年4月26日07:36:20
+
+#### [递归循环两种方式反转链表][2]
+
+
+#### 合并链表(递归实现)
+ListNode* Merge(ListNode* head1,ListNode* head2){
+    if(head1==null)
+    return head1;
+    else if(head2==null)
+    return head2;
+
+    ListNode* mergerhead=null;
+    if(head1->value<head2->value){
+        mergehead=head1;
+        mergerhead->next=Merge(head1->next,head2);
+    }
+
+    else{
+        mergehead=head2;
+        mergehead->next=merge(head1,head2->next);
+    }
+    return mergehead;
+}
+
+
+找到个链表中的第一个相同的节点
+关键点 有相同的节点 说明了一个问题，从该节点开始，后面的节点都一样
+蛮力法
+栈 
+不需要栈，长的先走
+
+#### 最大公约数的几种求法
+- 蛮力法
+- 辗转相除法
+- 更相减损术
+- 位移+更相减损
+
+
+
+
+
+Viola Jones Face Detector:
+
+Viola Jones Face Detector是Paul viola 和 Michael J Jones共同提出的一种人脸检测框架。它极大的提高了人脸检测的速度和准确率。
+速度提升方面：利用积分图像来提取图像特征值，所以非常快。
+积分图主要的思想是将图像从起点开始到各个点所形成的矩形区域像素之和作为一个数组的元素保存在内存中，当要计算某个区域的像素和时可以直接索引数组的元素，不用重新计算这个区域的像素和
+
+同时，利用adaboost分类器的特征筛选特性，保留最有用特征，这也减少了检测时的运算复杂度。
+准确率提升方面：将adaboost分类器进行改造，变成级联adaboost分类器，提高了人脸检测的准确率（降低漏检率和误检率）。一旦在某一级分类器中，检测出不是人脸，人脸检测立刻终止。因为图片中有人脸的部分只占很小的比例，所以检测窗口在大部分位置和尺度上都可以很快就停止检测。这种人脸检测策略的速度比起上面所说的200个特征的原始adaboost分类器要快得多。
+
+Adaboost的原理就是构造一个由多个弱分类器并联成的强分类器，每个弱分类器都根据自己的准确率将自己的分类结果乘以权值，最后的输出是所有若分类器输出的加和。
+
+
+
+ZigBee无线通讯技术,采用的是一种以IEEE 802.15.4 标准，是一种近距离、低复杂度有、低功耗、低速率、低成本的双向无线通讯技术。
+
+IEEE 802.15.4描述了低速率无线个人局域网的物理层和媒体接入控制协议。
+
+IEEE802.11b是无线局域网的一个标准。其载波的频率为2.4GHz，传送速度为11Mbit/s。IEEE802.11b是所有无线局域网标准中最著名，也是普及最广的标准。它有时也被错误地标为Wi-Fi。
+
+
+建树 汇聚 分发
+弊端：树的不完整性（坏包，撞包） 根节点处于偏远位置时树的深度大，发包量大
+
+随机时间广播（2-1s之间），接收到包之后更新在随机时间转发广播，转发次数限定为3 
+优点 信息包的类型少，发包量低，随机法使得撞包概率小
+
+
+2017-4-27 09:20:43
+execve（执行文件）在父进程中fork一个子进程，在子进程中调用exec函数启动新的程序。exec函数一共有六个，其中execve为内核级系统调用，其他（execl，execle，execlp，execv，execvp）都是调用execve的库函数。
+
+
+汉诺塔的递归实现以及栈实现：
+http://www.tuicool.com/articles/b2yMBnF
+
+
+  [1]: http://www.cttl.cn/tegd/jshqsh/201105/t20110517_635954.html
+  [2]: http://blog.csdn.net/ns_code/article/details/25737023
