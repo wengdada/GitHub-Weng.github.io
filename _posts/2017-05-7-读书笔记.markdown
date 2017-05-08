@@ -13,8 +13,8 @@ tags:
 >把自己看过的一些书的知识点做下记录，算是学习过程中的一些总结吧
 
 * [《编程语言原理(第10版)》--清华大学出版社](#programming_language)
-* [](#java_book)
-* [](#interview_book)
+* [1111](#java_book)
+* [2222](#interview_book)
  
 
 <span id="java_book"></span>
