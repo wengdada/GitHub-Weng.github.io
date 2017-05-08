@@ -12,6 +12,7 @@ tags:
     - Network
     - DataStructure
     - Algorithm
+    - Solution
 ---
 
 
@@ -31,6 +32,7 @@ tags:
 
 <span id="java_reference"></span>
 ## Java相关
+
 
 
 
@@ -164,6 +166,14 @@ execve（执行文件）在父进程中fork一个子进程，在子进程中调�
 
 汉诺塔的递归实现以及栈实现：
 http://www.tuicool.com/articles/b2yMBnF
+
+
+
+<span id="solution_reference"></span>
+## 解决一些问题
+#### win10下设置自动关机以及自动开机
+http://jingyan.baidu.com/album/15622f2419ff79fdfcbea5db.html
+
 
 
   [1]: http://www.cttl.cn/tegd/jshqsh/201105/t20110517_635954.html
