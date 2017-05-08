@@ -13,17 +13,18 @@ tags:
 >把自己看过的一些书的知识点做下记录，算是学习过程中的一些总结吧
 
 * [《编程语言原理(第10版)》--清华大学出版社](#programming_language)
-* [1111](#java_book)
-* [2222](#interview_book)
+* [1111o](#java_book)
+* [2222o](#interview_book)
  
 
 <span id="java_book"></span>
 ## Java书籍推荐
 
----
 
 <span id="programming_language"></span>
+
 ##《编程语言原理(第10版)》
+
 #### 第五章 名字 绑定和作用域
 
 ###### 变量
