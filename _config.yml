@@ -48,8 +48,8 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: wengdada
-disqus_share: true
+#disqus_username: wengdada
+#disqus_share: true
 
 
 # Duoshuo settings
@@ -58,6 +58,14 @@ disqus_share: true
 #duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
 
+# Gitalk
+gitalk:
+  enable: true    #是否开启Gitalk评论
+  clientID: '159eaf9b149107456cd0'    #生成的clientID
+  clientSecret: 'fc72ad9010952e5637f9b92a1b938bd1bd7eb4e9'   #同上
+  repo: GitHub-Weng.github.io    #仓库名称
+  owner: GitHub-Weng    #github用户名
+  admin: GitHub-Weng
 
 
 # Analytics settings
