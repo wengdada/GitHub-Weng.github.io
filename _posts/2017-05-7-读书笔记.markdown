@@ -122,10 +122,9 @@ c#中的命名常量有两种，一种是const定义，另外一种是用readonl
 <span id="interview_book"></span>
 ###### 面试书籍推荐
 
-
-  [1]: https://raw.githubusercontent.com/GitHub-Weng/GitHub-Weng.github.io/master/img/programming_language/code1.jpg
-  [2]: https://raw.githubusercontent.com/GitHub-Weng/GitHub-Weng.github.io/master/img/programming_language/code2.jpg
-  [3]: https://raw.githubusercontent.com/GitHub-Weng/GitHub-Weng.github.io/master/img/programming_language/code3.jpg
-  [4]: https://raw.githubusercontent.com/GitHub-Weng/GitHub-Weng.github.io/master/img/programming_language/code4.jpg
-  [5]: https://raw.githubusercontent.com/GitHub-Weng/GitHub-Weng.github.io/master/img/programming_language/code5.jpg
- [6]: https://raw.githubusercontent.com/GitHub-Weng/GitHub-Weng.github.io/master/img/programming_language/code6.jpg
+  [1]: http://wengdada.tech/img/post-article/programming_language/code1.jpg
+  [2]: http://wengdada.tech/img/post-article/programming_language/code2.jpg
+  [3]: http://wengdada.tech/img/post-article/programming_language/code3.jpg
+  [4]: http://wengdada.tech/img/post-article/programming_language/code4.jpg
+  [5]: http://wengdada.tech/img/post-article/programming_language/code5.jpg
+  [6]: http://wengdada.tech/img/post-article/programming_language/code6.jpg

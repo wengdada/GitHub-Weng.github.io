@@ -44,12 +44,12 @@ tags:
 **wrongForm.txt**中的内容：
 >*a,B,C;a,B,c;AA->a,z->ZZ,B->c,C->abcA;S*
 
-![](http://wengdada.tech/img/compiler_principles_and_techniques_homework1_1.png)
+![](http://wengdada.tech/img/post-article/compiler_principles_and_techniques_homework1/compiler_principles_and_techniques_homework1_1.png)
 
 **1.txt**中的内容：
 >*A,B,C;a,b,c;S->a,aA->bB,B->c,C->abcA;S*
 
-![](http://wengdada.tech/img/compiler_principles_and_techniques_homework1_2.png)
+![](http://wengdada.tech/img/post-article/compiler_principles_and_techniques_homework1/compiler_principles_and_techniques_homework1_2.png)
 
 [实验文件及代码](https://github.com/GitHub-Weng/GitHub-Weng.github.io/tree/master/file/%E5%AE%9E%E9%AA%8C%E4%B8%80%20%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E5%8F%8A%E5%85%B6%E6%96%87%E6%B3%95)
 
