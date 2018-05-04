@@ -12,13 +12,12 @@ baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 
 # SNS settings
 RSS: false
-weibo_username:     danweng翁达标
-zhihu_username:     danaweng
+#weibo_username:     danweng翁达标
+zhihu_username:     wengdada
 github_username:    GitHub-Weng
 #twitter_username:  huxpro
-facebook_username:  danaweng
+facebook_username:  profile.php?id=100021572042819
 # linkedin_username:  firstname-lastname-idxxxx
-linkedin_username: 达标-翁
 
 
 # Build settings
@@ -66,7 +65,7 @@ gitalk:
   repo: GitHub-Weng.github.io    #仓库名称
   owner: GitHub-Weng    #github用户名
   admin: GitHub-Weng
-
+  distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 # Analytics settings
 # Baidu Analytics 
